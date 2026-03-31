@@ -117,7 +117,7 @@ public:
                 tokens.push_back(tok);
             }
             else if (peektoken() == '#'){
-                while (peektoken() != '\n' || peektoken() != '\0'){
+                while (peektoken() != '\n' && peektoken() != '\0'){
                     nexttoken();
                 }
             }
@@ -125,8 +125,8 @@ public:
                 nexttoken();
             }
             else if (peektoken() == '\\'){
-                while (peektoken() != '\n' || peektoken() != '\0'){
-                    if (peektoken() != ' ' || peektoken() != '\t') {
+                while (peektoken() != '\n' && peektoken() != '\0'){
+                    if (peektoken() != ' ' && peektoken() != '\t') {
                         throw std::runtime_error("Escape character expected");
                     }
                 }
